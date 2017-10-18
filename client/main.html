@@ -1,5 +1,5 @@
 <head>
-  <title>ifp</title>
+  <title>Property Plus Portal</title>
 
    <!-- Compiled and minified CSS -->
 
@@ -35,12 +35,13 @@
 
 #navbar {
   margin-top: 0%;
-  background-color: #0B0906;
+  background-color: #FFFFFF;
+  height: 100px;
 }
 
 .auth-content {
 
-  background-color: #0B0906;
+  background-color: #4A9F59;
 }
 
 #form18 > div.o-form-button-bar > input {
@@ -50,8 +51,8 @@
 
 #okta-sign-in .button-primary {
       color: white;
-      background-color: #B38D53;
-      border-color: #B38D53;
+      background-color: black;
+      border-color: black;
       background: none;
       background-repeat: no-repeat;
       filter: none;
@@ -68,8 +69,8 @@
 }
 
 .mdl-card__supporting-text{
-  background-color: #0B0906;
-  color: #B38D53;
+  background-color: #97C356;
+  color: #97C356;
 }
 
 .mdl-card__actions {
@@ -78,7 +79,7 @@
 }
 
   .mdl-button--fab.mdl-button--colored {
-    background-color: #B38D53;
+    background-color: #4A9F59;
   }
 
 </style>
@@ -105,7 +106,7 @@
   <header id="navbar" class="mdl-layout__header">
     <div class="mdl-layout__header-row">
       <!-- Title of the Header -->
-      <span class="mdl-layout-title"><img src="/IFP.png" height="100"></span>
+      <span class="mdl-layout-title"><img src="/property.png" height="100"></span>
       <!-- Spacer, to align items to right -->
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation links, hidden on smaller displays -->
@@ -114,8 +115,8 @@
       {{#if showLogin}}
         
       {{else}}
-      <a id="userName" class="mdl-navigation__link" href=""></a>
-      <a id="logOut" class="mdl-navigation__link nav-links" href="">Logout</a>
+<a id="userName" style="color: black;" class="mdl-navigation__link" href=""></a>
+      <a id="logOuting"  style="color: black;" class="mdl-navigation__link nav-links" href="">Logout</a>
       {{/if}}
           <div class="mdl-layout__drawer">
     <span class="mdl-layout-title">Your Title</span>
@@ -154,7 +155,7 @@
 //replace values of baseurl, client id , and whatever redirect uri you use 
 
 var signIn = new OktaSignIn({
-  baseUrl: 'https://vanbeektech.okta.com',
+  baseUrl: 'https://vanbeektech.okta.com', //replace with your info
   logo: '/userLogin.png',
   clientId: '0oa43ju51wQSUcS6b1t7',
   redirectUri: 'http://localhost:3000/authorization-code/callback',
@@ -232,6 +233,7 @@ var signIn = new OktaSignIn({
   authParams: {
 // display: 'page',
   responseType: ['code', 'id_token'],
+
   scopes: ['openid', 'email', 'profile', 'address', 'phone', 'groups', 'offline_access']
   }
 });

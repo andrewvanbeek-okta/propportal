@@ -13,8 +13,8 @@ import './main.html';
   var authClient = new OktaAuth({
     url: 'https://vanbeektech.okta.com',
     clientId: '0oa43ju51wQSUcS6b1t7',
-    redirectUri: 'http://localhost:3000'
-	});
+    redirectUri: 'http://localhost:3000/authorization-code/callback'
+  });
 
 var signIn = new OktaSignIn({
   baseUrl: 'https://vanbeektech.okta.com',
@@ -24,6 +24,7 @@ var signIn = new OktaSignIn({
   authParams: {
 // display: 'page',
   responseType: ['code', 'id_token'],
+
   scopes: ['openid', 'email', 'profile', 'address', 'phone', 'groups', 'offline_access']
   }
 });
@@ -44,14 +45,15 @@ var signIn = new OktaSignIn({
 
 
  Template.body.events({
-    'click #logOut': function (e) {
+    'click #logOuting': function (e) {
       e.preventDefault()
       authClient.signOut()
     console.log("xyztest")
       Session.set("loggedOut", true) 
  
 
-  signIn.tokenManager.clear();
+
+
     }
 
 
@@ -81,15 +83,18 @@ Template.hello.helpers({
     'click .button': function (e) {
       console.log("gets here")
 
-   var signIn = new OktaSignIn({
+var signIn = new OktaSignIn({
   baseUrl: 'https://vanbeektech.okta.com',
-  clientId: '0oa38fseusRyzxVKf1t7',
+  logo: '/userLogin.png',
+  clientId: '0oa43ju51wQSUcS6b1t7',
   redirectUri: 'http://localhost:3000/authorization-code/callback',
   authParams: {
 // display: 'page',
-  responseType: 'code',
-  scopes: ['openid']}
-  });
+  responseType: ['code', 'id_token'],
+
+  scopes: ['openid', 'email', 'profile', 'address', 'phone', 'groups', 'offline_access']
+  }
+});
 
   signIn.session.get((response) => {
       if (response.status !== 'INACTIVE') {

@@ -24,9 +24,9 @@ var auth = new Buffer('6aLzadRju1m8gIRMbOpw:_3dM_wUzN5LL52BA9MjSACXFH1ctiBN_JF6K
 var route = "https://vanbeektech.okta.com/api/v1/users/" + userId + "/appLinks"
 var result = Meteor.http.get(route, {
     
-      headers: {
+   headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
-        "Authorization": "SSWS 00niOdIESXdsaEwYYy-9ESg3GmBgEfhN_yrh6EH7H" // replace with SWSS your Api Token
+        "Authorization": "SSWS YOUR TOKEN HERE" // replace with SWSS your Api Token
       }
     });
 
