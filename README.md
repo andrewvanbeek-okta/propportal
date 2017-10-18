@@ -1,5 +1,5 @@
 
-# portalforifp
+# portal
 
 This project uses meteor so to install meteor by following this guide:
 https://guide.meteor.com/#quickstart
